@@ -1,0 +1,32 @@
+<div class="main-container">
+    <form ngForm #form="ngForm" (ngSubmit) = "submit(form)">
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input required minlength="4" ngModel name="firstname" #firstname="ngModel" id="firstname"
+                (change)="log(firstname)" type="text" class="form-control">
+
+            <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">
+                <div *ngIf="firstname.errors?.['required']">First Name Required!</div>
+                <div *ngIf="firstname.errors?.['minlength']">First Name Should Be More Than {{ firstname.errors?.['minlength'].requiredLength }} Characters!</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea ngModel name="comment" #comment="ngModel" id="comment" cols="30" rows="10"
+                class="form-control"></textarea>
+        </div>
+
+        <div class="checkbox">
+
+            <label for="">
+                <input type="checkbox" ngModel name="mailing"> Subcribe Mailing List
+            </label>
+            
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+        </div>
+    </form>
+</div>
