@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
 
+  contacts = [
+    { id: 1, name: "Email" },
+    { id: 2, name: "LinkedIn" },
+    { id: 3, name: "Twitter" },
+    { id: 4, name: "Facebook" }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
